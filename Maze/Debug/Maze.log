@@ -1,9 +1,5 @@
-﻿  stdafx.cpp
-  Node.cpp
-  Maze.cpp
-  LinkedListTest.cpp
-  LinkedList.cpp
-  Game.cpp
-  Display.cpp
-  正在生成代码...
+﻿  Maze.cpp
+e:\programming career\oop\maze\maze\maze.cpp(109): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
+e:\programming career\oop\maze\maze\maze.cpp(116): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
+e:\programming career\oop\maze\maze\maze.cpp(123): warning C4390: “;”: 找到空的受控语句；这是否是有意的?
   Maze.vcxproj -> E:\Programming Career\OOP\Maze\Debug\Maze.exe

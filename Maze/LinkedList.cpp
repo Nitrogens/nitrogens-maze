@@ -52,8 +52,29 @@ bool LinkedList::deleteNode(Node *position)
 	return OK;
 }
 
-bool LinkedList::search(void (*function)(DataType))
+Node * LinkedList::search(DataType data)
 {	
+	//判断是否只存在头节点
+	if (head->getNext() == NULL)
+		return NULL;
+	Node * pointer = head->getNext();
+	//若不是尾节点，则向下遍历
+	while (pointer != NULL)
+	{
+		if (data > pointer->getValue() || pointer->getValue() == data)
+			return pointer->getPrev();
+		//下一个节点
+		pointer = pointer->getNext();
+	}
+	return NULL;
+}
+
+bool LinkedList::traverseToFile(string fileName)
+{
+	// 文件流
+	fstream file;
+	//打开文件
+	file.open(fileName.c_str(), ios::out);
 	//判断是否只存在头节点
 	if (head->getNext() == NULL)
 		return FAIL;
@@ -61,8 +82,35 @@ bool LinkedList::search(void (*function)(DataType))
 	//若不是尾节点，则向下遍历
 	while (pointer != NULL)
 	{
-		//遍历到的值，传入函数参数中
-		function(pointer->getValue());
+		//向文件中输入一行数据
+		file << pointer->getValue().getName() << " " << pointer->getValue().getScore() << endl;
+		//下一个节点
+		pointer = pointer->getNext();
+	}
+	//关闭文件
+	file.close();
+	return OK;
+}
+
+bool LinkedList::traverseToScreen()
+{
+	//判断是否只存在头节点
+	if (head->getNext() == NULL)
+		return FAIL;
+	Node * pointer = head->getNext();
+	//序号
+	int i = 0;
+	//若不是尾节点，则向下遍历
+	while (pointer != NULL)
+	{
+		//输出一行数据
+		cout << "+--------+---------------+----------+" << endl;
+		//获取节点的值
+		DataType data = pointer->getValue();
+		cout << "|" << setw(8) << (++i)
+			<< "|" << setw(15) << data.getName()
+			<< "|" << setw(10) << data.getScore()
+			<< "|" << endl;
 		//下一个节点
 		pointer = pointer->getNext();
 	}

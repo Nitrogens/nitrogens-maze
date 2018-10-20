@@ -11,15 +11,22 @@ class Node
 public:
 	/*
 		Function Node
-		构造函数：用于初始化值
-		
+		构造函数：用于初始化值（无参）
+
+		@return void
+	*/
+	Node();
+	/*
+		Function Node
+		构造函数：用于初始化值（含参）
+
 		@param	DataType	_value	value的初值
 		@param	Node		*next	next的初值
 		@param	Node		*prev	prev的初值
 
 		@return void
 	*/
-	Node(DataType _value = 0, Node *_next = NULL, Node *_prev = NULL);
+	Node(DataType _value, Node *_next = NULL, Node *_prev = NULL);
 	/*
 		Function getValue
 		获取节点的值
@@ -49,7 +56,7 @@ public:
 
 		@return void
 	*/
-	void setValue(DataType _value = 0);
+	void setValue(DataType _value);
 	/*
 		Function setNext
 		设置指向下一个节点的指针

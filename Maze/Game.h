@@ -1,11 +1,26 @@
 #pragma once
-typedef pair<int, int> P;
+//广度优先搜索时压入队列的节点
+struct BFSNode
+{
+	/*
+		int	x				当前节点的纵坐标
+		int	y				当前节点的横坐标
+		int numberOfSteps	当前节点已走过的步数
+	*/
+	int x;
+	int y;
+	int numberOfSteps;
+
+	BFSNode(int _x, int _y, int _numberOfSteps):
+		x(_x), y(_y), numberOfSteps(_numberOfSteps) {}
+};
 class Game
 {
 	/*
 		int		x				当前纵坐标
 		int		y				当前横坐标
 		int		numberOfSteps	已经走过的步数
+		time_t	startTime		游戏开始的时间
 		bool	isVisited[][]	标记节点是否被访问过的数组（用于迷宫生成环节）
 		bool	matrix[][]		记录迷宫结构的数组，1为墙，0为地板
 		stack	step			存储已经走过的节点的栈（用于迷宫生成环节）
@@ -13,8 +28,9 @@ class Game
 	int x;
 	int y;
 	int numberOfSteps;
-	bool isVisited[2 * SIZE + 1][2 * SIZE + 1];
-	bool matrix[2 * SIZE + 1][2 * SIZE + 1];
+	time_t startTime;
+	bool isVisited[2 * MAZESIZE + 1][2 * MAZESIZE + 1];
+	bool matrix[2 * MAZESIZE + 1][2 * MAZESIZE + 1];
 	stack <pair<int, int> > step;
 public:
 	/*
@@ -41,6 +57,14 @@ public:
 	*/
 	void makeMaze(int x, int y);
 	/*
+		Function getBestSolution
+		获取迷宫求解最少步数的函数
+		（利用广度优先搜索）
+
+		@return int
+	*/
+	int getBestSolution();
+	/*
 		Function getMatrix
 		获取迷宫中某个坐标情况的函数
 
@@ -56,9 +80,27 @@ public:
 
 		@param	direction	D	移动方向
 
-		@return void
+		@return bool	true表明成功移动
 	*/
-	void playerMove(direction D);
+	bool playerMove(direction D);
+	/*
+		Function getPosition
+		获取玩家当前坐标
+
+		@param void
+
+		@return pair<int, int>
+	*/
+	P getPosition();
+	/*
+		Function getNumberOfSteps
+		获取玩家当前已走步数
+
+		@param void
+
+		@return int
+	*/
+	int getNumberOfSteps();
 	/*
 		Function isEnd
 		判断游戏是否结束的函数
@@ -68,6 +110,24 @@ public:
 		@return bool
 	*/
 	bool isEnd();
+	/*
+		Function startGame
+		负责游戏开始时的开始计时操作
+
+		@param void
+
+		@return void
+	*/
+	void startGame();
+	/*
+		Function calcScore
+		计算游戏分数
+
+		@param void
+
+		@return int
+	*/
+	int calcScore();
 	~Game();
 };
 

@@ -148,19 +148,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Display.h" />
+    <ClInclude Include="FileOp.h" />
+    <ClInclude Include="FileOpenException.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="ranklistRecord.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Display.cpp" />
+    <ClCompile Include="FileOp.cpp" />
+    <ClCompile Include="FileOpenException.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LinkedList.cpp" />
-    <ClCompile Include="LinkedListTest.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="RanklistRecord.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "Node.h"
 
+Node::Node():
+	value(DataType()), next(NULL), prev(NULL) {}
+
 Node::Node(DataType _value, Node* _next, Node* _prev):
 	value(_value), next(_next), prev(_prev) {}
 

@@ -53,11 +53,27 @@ public:
 		Function search
 		遍历整个链表，并在每个循环节执行指定的函数
 
-		@param	void *function(DataType)	所指定的函数
+		@param	DataType	data	要查找的数据
+
+		@return Node*	指向节点的指针
+	*/
+	Node * search(DataType data);
+	/*
+		Function traverseToFile
+		遍历整个链表，并向指定的文件IO类输出数据
+
+		@param	fstream *file	指向文件IO类的指针
 
 		@return bool	遍历是否成功
 	*/
-	bool search(void (*function)(DataType));
+	bool traverseToFile(string fileName);
+	/*
+		Function traverseToScreen
+		遍历整个链表，并输出每个节点的数据
+
+		@return bool	遍历是否成功
+	*/
+	bool traverseToScreen();
 	/*
 		Function LinkedList
 		析构函数：用于释放内存空间

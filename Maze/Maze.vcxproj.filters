@@ -33,6 +33,15 @@
     <ClInclude Include="LinkedList.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="ranklistRecord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOpenException.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -53,7 +62,13 @@
     <ClCompile Include="LinkedList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="LinkedListTest.cpp">
+    <ClCompile Include="FileOp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RanklistRecord.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOpenException.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
